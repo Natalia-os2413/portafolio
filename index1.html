@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalia Osorio | Frontend Developer</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f3f4f6;
+  color:#1f2937;
+}
+
+.section{
+  padding:70px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.hidden{
+  display:none;
+}
+
+header{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:90px 20px;
+}
+
+header h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#111827;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  border:none;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#374151;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  margin-top:20px;
+}
+
+.landing-hero{
+  background:linear-gradient(135deg,#2563eb,#1e3a8a);
+  color:white;
+  text-align:center;
+  padding:120px 20px;
+}
+
+.landing-hero h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.cta{
+  margin-top:30px;
+  padding:15px 35px;
+  background:white;
+  color:#1e3a8a;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+}
+
+.form-container{
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  max-width:500px;
+  margin:40px auto;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTAFOLIO -->
+<div id="portfolio">
+
+<header>
+  <h1>Hola, soy Natalia</h1>
+  <p>Desarrolladora Frontend especializada en crear sitios web modernos y optimizados.</p>
+</header>
+
+<div class="section">
+  <h2>Proyecto Destacado</h2>
+  <div class="card">
+    <h3>Landing Page para Agencia Digital</h3>
+    <p>Landing moderna enfocada en captación de clientes con diseño limpio y llamado a la acción estratégico.</p>
+    <button class="btn" onclick="abrirProyecto()">Ver proyecto</button>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Contacto</h2>
+  <p>Email: nataliaosoriomadariaga@gmail.com</p>
+  <p>
+    LinkedIn:
+    <a href="https://www.linkedin.com/services/page/14105b342483383283/" target="_blank" style="color:#2563eb;font-weight:bold;text-decoration:none;">
+      Ver perfil profesional
+    </a>
+  </p>
+</div>
+
+<footer>
+© 2026 Natalia Osorio
+</footer>
+
+</div>
+
+<!-- PROYECTO -->
+<div id="proyecto" class="hidden">
+
+<div class="landing-hero">
+  <h2>Impulsa tu negocio al siguiente nivel</h2>
+  <p>Creamos sitios web estratégicos diseñados para atraer clientes y aumentar conversiones.</p>
+  <button class="cta" onclick="mostrarFormulario()">Solicitar información</button>
+</div>
+
+<div id="formulario" class="hidden">
+  <div class="form-container">
+    <h3>Solicitar Información</h3>
+
+    <input type="text" id="nombre" placeholder="Tu nombre" required>
+    <input type="email" id="email" placeholder="Tu email" required>
+    <textarea id="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
+
+    <button class="btn" onclick="enviarFormulario()">Enviar</button>
+  </div>
+</div>
+
+<div class="section" style="text-align:center;">
+  <button class="btn" onclick="volver()">Volver al portafolio</button>
+</div>
+
+</div>
+
+<script>
+
+function abrirProyecto(){
+  document.getElementById("portfolio").style.display="none";
+  document.getElementById("proyecto").style.display="block";
+  window.scrollTo(0,0);
+}
+
+function volver(){
+  document.getElementById("proyecto").style.display="none";
+  document.getElementById("portfolio").style.display="block";
+  window.scrollTo(0,0);
+}
+
+function mostrarFormulario(){
+  document.getElementById("formulario").style.display="block";
+}
+
+function enviarFormulario(){
+
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const mensaje = document.getElementById("mensaje").value;
+
+  const asunto = encodeURIComponent("Nuevo mensaje desde tu portafolio");
+  const cuerpo = encodeURIComponent(
+    "Nombre: " + nombre + "\n" +
+    "Email: " + email + "\n\n" +
+    "Mensaje:\n" + mensaje
+  );
+
+  window.location.href =
+  "mailto:nataliaosoriomadariaga@gmail.com?subject=" + asunto + "&body=" + cuerpo;
+}
+
+</script>
+
+</body>
+</html>
